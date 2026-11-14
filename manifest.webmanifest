@@ -1,0 +1,11 @@
+{
+  "name": "Fieldwork Training Planner",
+  "short_name": "Fieldwork",
+  "description": "A mobile training planner for your coach-provided soccer workouts.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6f7f3",
+  "theme_color": "#10281f",
+  "icons": [{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}

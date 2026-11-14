@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#10281f">
+  <meta name="description" content="Your coach's soccer training plan, organized into mobile-friendly workouts with timers and progress tracking.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <title>Fieldwork — Training planner</title>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#today" aria-label="Fieldwork home"><span class="brand-mark">F</span><span>FIELDWORK<span class="brand-sub">TRAINING PLANNER</span></span></a>
+    <button class="install-button" id="install-button" hidden>Install app</button>
+  </header>
+  <main id="app" class="app-shell" tabindex="-1"></main>
+  <nav class="bottom-nav" aria-label="Main navigation">
+    <button data-view="today" class="nav-item active"><span>◷</span>Today</button>
+    <button data-view="library" class="nav-item"><span>▤</span>Workouts</button>
+    <button data-view="plan" class="nav-item"><span>▦</span>12-week plan</button>
+    <button data-view="progress" class="nav-item"><span>◒</span>Progress</button>
+  </nav>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js" defer></script>
+</body>
+</html>
