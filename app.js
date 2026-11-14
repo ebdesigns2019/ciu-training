@@ -1,13 +1,12 @@
 const routines = [
-  { id:'dynamic', title:'Progressive Dynamic Warm-Up', category:'Warm-up', duration:11, equipment:'None', note:'Complete one round. Rest 10 seconds after each movement; running can be on a treadmill or outdoors.', exercises:[
-    ['Jog','20 sec','Easy pace.'],['Jog','20 sec','Easy pace.'],['Jumping jacks','20 sec','Jump feet apart and bring arms overhead; return quickly.'],['Lateral shuffle','15 sec each side','Shuffle about 25 meters; move one way for 15 seconds, then switch.'],['Bodyweight squat','20 sec','Keep back flat and eyes up. Back first, then sink hips; drive through heels to stand.'],['Jog','20 sec','Easy pace.'],['Bodyweight walking lunge','20 sec','Take a big step, bend knees, then step through into the next lunge.'],['Jumping jacks','20 sec','Jump feet apart and bring arms overhead; return quickly.'],['Leg swing','15 sec each side','Hold support; swing leg forward and back.'],['Lateral leg swing','15 sec each side','Hold support; swing leg side to side across your body.'],['Bodyweight split jump','15 sec each side','Explode from lunge and switch legs midair; land under control.'],['Bodyweight lateral split jump','15 sec each side','Explode laterally from a lunge; land softly.'],['Single-leg bound','15 sec each side','Load one leg, jump forward to the opposite leg, and land softly.'],['Ice skater','15 sec','Load outside foot, control the landing, and jump back the other way.'],['Sprint','15 sec each side','Sprint as fast as possible with good form.'],['Sprint','30 sec','Sprint as fast as possible with good form.']] },
+  { id:'dynamic', title:'Progressive Dynamic Warm-Up', category:'Warm-up', duration:11, equipment:'None', note:'Complete one round. Rest 10 seconds after each movement; running can be on a treadmill or outdoors.', exercises:[['Jog','20 sec','Easy pace.'],['Jog','20 sec','Easy pace.'],['Jumping jacks','20 sec','Jump feet apart and bring arms overhead; return quickly.'],['Lateral shuffle','15 sec each side','Shuffle about 25 meters; move one way for 15 seconds, then switch.'],['Bodyweight squat','20 sec','Keep back flat and eyes up. Back first, then sink hips; drive through heels to stand.'],['Jog','20 sec','Easy pace.'],['Bodyweight walking lunge','20 sec','Take a big step, bend knees, then step through into the next lunge.'],['Jumping jacks','20 sec','Jump feet apart and bring arms overhead; return quickly.'],['Leg swing','15 sec each side','Hold support; swing leg forward and back.'],['Lateral leg swing','15 sec each side','Hold support; swing leg side to side across your body.'],['Bodyweight split jump','15 sec each side','Explode from lunge and switch legs midair; land under control.'],['Bodyweight lateral split jump','15 sec each side','Explode laterally from a lunge; land softly.'],['Single-leg bound','15 sec each side','Load one leg, jump forward to the opposite leg, and land softly.'],['Ice skater','15 sec','Load outside foot, control landing, and jump back the other way.'],['Sprint','15 sec each side','Sprint as fast as possible with good form.'],['Sprint','30 sec','Sprint as fast as possible with good form.']] },
   { id:'total-body', title:'Total-Body Warm-Up', category:'Warm-up', duration:9, equipment:'None', note:'One round; rest 10 seconds between movements.', exercises:[['Swimmers','30 sec','Raise opposite arm and leg; keep continuous motion.'],['Prone fly','30 sec','Sweep arms above and behind; keep continuous motion.'],['Quadruped reach','60 sec','Reach opposite arm and leg; keep back flat and still.'],['Quadruped thoracic rotation','30 sec each side','Rotate elbow toward the ceiling.'],['Rotational side plank','60 sec','Rotate from side to side; keep hips high.'],['Hip flexor stretch to T-spine rotation','30 sec each side','Rotate to both sides.'],['Lunge position mobilization','30 sec each side','Gently stretch for the full interval.'],['Bodyweight squat to T-spine rotation','60 sec','Rotate to both sides each rep.'],['Jumping jacks','60 sec','Bring arms overhead; take short breaks if needed.']] },
   { id:'hiit', title:'HIIT Warm-Up', category:'Warm-up', duration:5, equipment:'None', note:'One round; rest 10 seconds between movements.', exercises:[['Rotational side plank','30 sec','Rotate from side to side; keep hips high.'],['Flutter kicks','30 sec','Legs straight, toes pointed; keep continuous motion.'],['Mountain climbers','30 sec','Alternate knees to chest; move fast with intensity.'],['Side plank with hip abduction','30 sec each side','Raise and lower the top leg.'],['Bodyweight lunge to twist','30 sec','Alternate legs and twist to both sides each rep.'],['Bodyweight squat','30 sec','Sit hips back, then drive up through the whole foot.'],['Jumping jacks','30 sec','Bring arms overhead each rep; move quickly.'],['Lateral hops','30 sec','Hop both feet side to side; stay springy and quick.']] },
   { id:'med-ball', title:'Medicine Ball Warm-Up', category:'Warm-up', duration:6, equipment:'Medicine ball', note:'One round; rest 10 seconds between movements.', exercises:[['Side-to-side tap','30 sec','Balance with feet off floor; tap ball lightly to each side.'],['Crunch to extension','30 sec','Tuck medicine ball to knees, then extend.'],['Toe touch','30 sec','Reach ball toward toes; curl back to floor slowly.'],['Single-leg RDL to reach','30 sec each side','Alternate legs each rep.'],['Lunge to twist','30 sec','Alternate legs and twist to both sides each rep.'],['Wood chopper','30 sec','Sweep ball overhead, then between legs.'],['Squat to press','30 sec','Squat first, then press ball overhead.'],['Golf swing','30 sec','Sweep ball across body and up; alternate sides.'],['Head circles','30 sec','Rotate ball around head; alternate directions.']] },
   { id:'stability', title:'Reactive Stability Primer', category:'Primer', duration:5, equipment:'None', note:'One round after warm-up and before your workout. Rest 30 seconds between movements.', exercises:[['Lateral hops','20 reps','Small lateral hops in each direction; keep core locked and legs together.'],['Single-leg lateral hops','10 reps each direction','Small lateral hops in each direction on one leg; 20 total reps per leg.'],['90-degree jump and land','3 reps each direction','Push hips back, bend knees, jump and rotate 90 degrees; land softly with knees bent.'],['90-degree jump, single-leg land','3 reps each direction','Rotate 90 degrees and land softly on one leg. Match landing leg to rotation direction.'],['180-degree jump and land','3 reps each direction','Jump and rotate 180 degrees; land softly with knees bent.'],['180-degree jump, single-leg land','3 reps each direction','Jump and rotate 180 degrees; land softly on one leg.']] },
   { id:'mobility', title:'Total-Body Mobility Primer', category:'Mobility', duration:5, equipment:'None', note:'One round after warm-up and before your workout. Rest 10 seconds between movements.', exercises:[['Spine CAR','5 reps each side','Brace core, cross arms at chest, and slowly rotate spine through a controlled circle in each direction.'],['Shoulder CAR','5 reps each side','Isolate movement at shoulder; reach arm overhead and behind, then reverse direction.'],['Hip CAR','5 reps each side','Use support for balance and slowly move leg through a controlled circle in each direction.'],['Hip flexor stretch to T-spine rotation','10 sec each position','Half-kneeling: hold hip-flexor position, then rotate left and right.'],['Cat-camel','10 reps','On hands and knees, slowly flex and extend spine; breathe steadily.'],['Quadruped reach','5 reps each side','Brace core; reach opposite arm and leg, return to center, then switch.']] },
   { id:'hip', title:'Hip Mobility Primer', category:'Mobility', duration:5, equipment:'None', note:'Marked daily on the sheet. One round after warm-up and before your workout; rest 10 seconds between movements.', exercises:[['Side-lying hip CAR','6 reps each side','Move top leg in a controlled circle through the hip’s range of motion.'],['Quadruped hip CAR','6 reps each side','On hands and knees, isolate hip movement and slowly circle the leg.'],['Hip external rotation isometric hold','20 sec each side','Side-lying, bottom leg flexed; actively externally rotate the bottom hip.'],['Hip extension isometric hold','20 sec each side','On hands and knees, tuck one knee and extend the other leg behind; lift to end range.'],['Hip 90/90 to figure four','5 reps each side','Lift rear leg and rotate through end-range mobility; keep core braced.'],['Hip airplane','10 reps each side','Hold support, hinge on one leg, rotate hips toward lifted leg, then reverse slowly.']] },
-  { id:'fast-twitch', title:'Fast-Twitch Activation Primer', category:'Primer', duration:5, equipment:'None', note:'One round after warm-up and before your workout. Rest 30 seconds between movements.', exercises:[['Jumping jacks','50 reps','Jump feet apart and bring arms overhead, then return.'],['Single-leg lateral hops','10 reps each direction','Small lateral hops on one leg; 20 total reps per leg.'],['Bodyweight split jump','10 reps each side','Explode out of a lunge and switch legs midair; jump high.'],['Ice skater','6 reps each side','Jump laterally as far as possible; begin the next rep upon landing.'],['Broad jump','5 reps','Hinge hips, load jump, jump forward as far as possible, and reset between reps.'],['Medicine-ball reactive reverse overhead throw','5 reps','Load hips, sink into squat, pull ball between legs, then explosively throw overhead.']] },
+  { id:'fast-twitch', title:'Fast-Twitch Activation Primer', category:'Primer', duration:5, equipment:'None', note:'One round after warm-up and before your workout. Rest 30 seconds between movements.', exercises:[['Jumping jacks','50 reps','Jump feet apart and bring arms overhead, then return.'],['Single-leg lateral hops','10 reps each direction','Small lateral hops on one leg; 20 total reps per leg.'],['Bodyweight split jump','10 reps each side','Explode out of lunge and switch legs midair; jump high.'],['Ice skater','6 reps each side','Jump laterally as far as possible; begin the next rep upon landing.'],['Broad jump','5 reps','Hinge hips, load jump, jump forward as far as possible, and reset between reps.'],['Medicine-ball reactive reverse overhead throw','5 reps','Load hips, sink into squat, pull ball between legs, then explosively throw overhead.']] },
   { id:'core', title:'Core Strength Finisher', category:'Finisher', duration:5, equipment:'None', note:'One round after your workout. Rest 20 seconds between movements.', exercises:[['Hollow hold','60 sec','Keep arms and legs straight; raise arms, legs, and head. Brace core throughout.'],['Bodyweight V-up','60 sec','Start extended, bring body into a V using core, then lower with control.'],['Flutter kicks','60 sec','Keep legs straight and torso still; alternate legs with control.'],['Front plank','60 sec','Keep legs straight and elbows under shoulders; do not let back sag.'],['Pause mountain climbers (5 sec)','60 sec','High plank; alternate knees to chest, pausing for 5 seconds at each rep.']] },
   { id:'breath', title:'Breath Work Cooldown Finisher', category:'Cooldown', duration:5, equipment:'None', note:'One round after your workout; rest 10 seconds between movements. Breathe comfortably—do not force or strain.', exercises:[['Belly breathing (kneeling)','60–90 sec','Breathe deeply; inhale from deep in the belly and exhale completely. Relax without forcing.'],['Belly breathing (quadruped)','60–90 sec','Breathe deeply; inhale from deep in the belly and exhale completely. Relax without forcing.'],['Belly breathing (feet elevated)','60–90 sec','Breathe deeply; inhale from deep in the belly and exhale completely. Relax without forcing.'],['Belly breathing (side-lying)','60–90 sec each side','Breathe deeply; inhale from deep in the belly and exhale completely. Relax without forcing.']] },
   { id:'cooldown', title:'Total Body Flexibility Cooldown', category:'Cooldown', duration:15, equipment:'Box/bench, towel', note:'One round after your workout; rest 20 seconds between movements.', exercises:[['Pigeon stretch','90–120 sec each side','Stretch posterior hip; adjust bottom leg to deepen stretch. Hold both sides.'],['Half-kneeling adductor stretch','90–120 sec each side','One knee down, one knee out; sit hips back. Keep core braced and back straight.'],['Sleeper stretch','60–90 sec','Lie on side with head supported; press bottom hand down gently. Hold both sides.'],['Doorway stretch','60–90 sec each side','Elbow at 90 degrees; lean torso forward to stretch anterior shoulder.'],['T-spine bench mobility','30 sec','Kneel at bench with towel in underhand grip; rotate dowel side to side with control.']] },
@@ -15,7 +14,8 @@ const routines = [
   { id:'breathing', title:'Breathing Reset', category:'Cooldown', duration:4, equipment:'None', note:'The sheet labels this daily. One round, resting 10 seconds between movements.', exercises:[['Belly breathing (kneeling)','60–90 sec','Inhale deeply into belly, exhale completely. Do not force or strain.'],['Belly breathing (quadruped)','60–90 sec','Inhale deeply into belly, exhale completely. Relax deeper as you go.'],['Belly breathing (feet elevated)','60–90 sec','Inhale deeply into belly, exhale completely. Do not force or strain.'],['Belly breathing (side-lying)','60–90 sec each side','Inhale deeply into belly, exhale completely. Relax without forcing.']] }
 ];
 
-// The 12-week schedule below is transcribed from the supplied conditioning sheet.
+const planPages = routines.map((routine, index) => ({ ...routine, page: index + 1, phase: routine.category }));
+
 const conditioning = [
   [['Fartlek run','20 min'],['1/2 Gasser','5 reps · rest 30 sec'],['Easy run','20–30 min']],
   [['Fartlek run','20 min'],['1/2 Gasser','5 reps · rest 30 sec'],['Easy run','20–30 min']],
@@ -31,87 +31,365 @@ const conditioning = [
   [['Sprint 25 yd','12 reps · rest 90 sec'],['Figure-8','5 × 60 sec · rest 90 sec'],['1/2 Gasser','5 reps · rest 60 sec']]
 ];
 
-const speedSessions = [
- { id:'speed-tier1', title:'Speed & Agility — Tier I', category:'Speed', items:[['Square cone drills','2 reps each drill each way · rest 20–30 sec'],['5–10–15 shuttle','2 reps each drill · rest 20–30 sec'],['Ladder drills','2 reps each drill · rest 20–30 sec'],['Star cone drills','2 reps each drill · rest 20–30 sec'],['T-cone reaction drills','1 rep each drill · rest 20–30 sec'],['Plyometrics','1 rep each drill · rest 20–30 sec']] },
- { id:'speed-tier2', title:'Speed & Agility — Tier II', category:'Speed', items:[['Square cone drills','2 reps each drill each way · rest 20–30 sec'],['5–10–15 shuttle','2 reps each drill · rest 20–30 sec'],['Ladder drills','2 reps each drill · rest 20–30 sec'],['Star cone drills','2 reps each drill · rest 20–30 sec'],['T-cone reaction drills','1 rep each drill · rest 20–30 sec'],['Plyometrics','1 rep each drill · rest 20–30 sec']] },
- { id:'speed-tier3', title:'Speed & Agility — Tier III', category:'Speed', items:[['2-square cone drills','2 reps each drill each way · rest 20–30 sec'],['5–10–15–20 shuttle','2 reps each drill · rest 20–30 sec'],['Ladder drills','2 reps each drill · rest 20–30 sec'],['Mini hurdle drills','2 reps each drill · rest 20–30 sec'],['Star cone reaction drills','2 reps each drill · rest 20–30 sec'],['Z-pattern drill','1 rep each drill · rest 20–30 sec']] }
-];
-
 const state = { view:'today', selectedRoutine:'dynamic', selectedWeek:1, query:'', category:'All', timer:null, seconds:0, running:false };
 const KEY = 'fieldwork-v1';
 let saved = loadSaved();
 function loadSaved(){ try { return JSON.parse(localStorage.getItem(KEY)) || {done:{}, sessions:{}, days:{}}; } catch { return {done:{}, sessions:{}, days:{}}; } }
 function save(){ localStorage.setItem(KEY, JSON.stringify(saved)); }
-function esc(s){ return String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
-function keyFor(routineId,index){ return `${routineId}:${index}`; }
-function completedCount(routine){ return routine.exercises.reduce((n,_,i)=>n+(saved.done[keyFor(routine.id,i)]?1:0),0); }
-function pct(done,total){ return total ? Math.round(done/total*100) : 0; }
-function progressBar(done,total,label='Progress'){ const p=pct(done,total); return `<div class="progress-line" role="progressbar" aria-label="${esc(label)}" aria-valuenow="${p}" aria-valuemin="0" aria-valuemax="100"><span style="width:${p}%"></span></div>`; }
+function esc(s){ return String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;' }[c])); }
+function keyFor(routineId, index){ return `${routineId}:${index}`; }
+function completedCount(routine){ return routine.exercises.reduce((n, _, i) => n + (saved.done[keyFor(routine.id, i)] ? 1 : 0), 0); }
+function pct(done, total){ return total ? Math.round((done / total) * 100) : 0; }
+function progressBar(done, total, label = 'Progress'){ const p = pct(done, total); return `<div class="progress-line" role="progressbar" aria-label="${esc(label)}" aria-valuenow="${p}" aria-valuemin="0" aria-valuemax="100"><span style="width:${p}%"></span></div>`; }
 function routineProgress(r){ return `${completedCount(r)} of ${r.exercises.length} steps`; }
+function getNextRoutine(){ return planPages.find(r => completedCount(r) < r.exercises.length) || planPages[0]; }
 function render(){
- const root=document.getElementById('app');
- document.querySelectorAll('.nav-item').forEach(b=>b.classList.toggle('active',b.dataset.view===state.view));
- if(state.view==='today') root.innerHTML=renderToday();
- if(state.view==='library') root.innerHTML=renderLibrary();
- if(state.view==='plan') root.innerHTML=renderPlan();
- if(state.view==='progress') root.innerHTML=renderProgress();
- bindEvents();
+  const root = document.getElementById('app');
+  document.querySelectorAll('.nav-item').forEach((b) => b.classList.toggle('active', b.dataset.view === state.view));
+  if (state.view === 'today') root.innerHTML = renderToday();
+  if (state.view === 'library') root.innerHTML = renderLibrary();
+  if (state.view === 'plan') root.innerHTML = renderPlan();
+  if (state.view === 'progress') root.innerHTML = renderProgress();
+  bindEvents();
 }
 function renderToday(){
- const r=routines.find(x=>x.id===state.selectedRoutine)||routines[0], done=completedCount(r);
- const upcoming=routines.filter(x=>x.category==='Warm-up').slice(0,3);
- return `<section class="hero"><div class="eyebrow">YOUR TRAINING, ORGANIZED</div><h1>Show up.<br><em>Step by step.</em></h1><p>Coach-provided soccer training, made easy to follow on your phone.</p><div class="hero-stats"><div><strong>${r.duration}<small> min</small></strong><span>selected routine</span></div><div><strong>${r.exercises.length}</strong><span>steps to complete</span></div></div></section>
- <section class="section"><div class="section-heading"><div><div class="eyebrow">PICK UP WHERE YOU LEFT OFF</div><h2>Today’s session</h2></div><button class="text-button" data-action="view" data-value="library">Browse all</button></div>
- <article class="workout-card featured"><div class="card-top"><span class="tag">${esc(r.category)}</span><span class="muted">${esc(r.duration)} min · ${esc(r.equipment)}</span></div><h3>${esc(r.title)}</h3><p>${esc(r.note)}</p><div class="progress-meta"><span>${routineProgress(r)}</span><span>${pct(done,r.exercises.length)}%</span></div>${progressBar(done,r.exercises.length,r.title+' progress')}<button class="primary-button full" data-action="open-routine" data-id="${r.id}">${done===r.exercises.length?'Review workout':'Continue workout'} <span>→</span></button></article></section>
- <section class="section"><div class="section-heading"><div><div class="eyebrow">QUICK PICKS</div><h2>Ready when you are</h2></div></div><div class="quick-grid">${upcoming.map(x=>`<button class="quick-card" data-action="select-routine" data-id="${x.id}"><span class="quick-icon">${x.category==='Warm-up'?'↗':'✦'}</span><strong>${esc(x.title)}</strong><small>${x.duration} min · ${x.exercises.length} steps</small></button>`).join('')}</div></section>
- <section class="notice"><span>ⓘ</span><p>Follow your coach’s directions and use good judgment. This app organizes the supplied sheets; it does not replace coaching or medical advice.</p></section>`;
+  const r = planPages.find(x => x.id === state.selectedRoutine) || getNextRoutine();
+  const done = completedCount(r);
+  const stack = planPages.slice(0, 4);
+  const totalPages = planPages.length;
+  const totalDone = planPages.filter(page => completedCount(page) === page.exercises.length).length;
+  return `
+    <section class="hero">
+      <div class="eyebrow">YOUR TRAINING, ORGANIZED</div>
+      <h1>Show up.<br><em>Step by step.</em></h1>
+      <p>Coach-provided soccer training, organized into a clean iPhone workflow with daily progress and keyed drill cues.</p>
+      <div class="hero-stats">
+        <div><strong>${totalPages}<small> pages</small></strong><span>in system</span></div>
+        <div><strong>${totalDone}</strong><span>routines done</span></div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="section-heading">
+        <div><div class="eyebrow">PICK UP WHERE YOU LEFT OFF</div><h2>Today’s session</h2></div>
+        <button class="text-button" data-action="view" data-value="library">Browse all</button>
+      </div>
+      <article class="workout-card featured">
+        <div class="card-top"><span class="tag">${esc(r.category)}</span><span class="muted">Page ${r.page} · ${esc(r.duration)} min · ${esc(r.equipment)}</span></div>
+        <h3>${esc(r.title)}</h3>
+        <p>${esc(r.note)}</p>
+        <div class="progress-meta"><span>${routineProgress(r)}</span><span>${pct(done, r.exercises.length)}%</span></div>
+        ${progressBar(done, r.exercises.length, r.title + ' progress')}
+        <button class="primary-button full" data-action="open-routine" data-id="${r.id}">${done === r.exercises.length ? 'Review workout' : 'Continue workout'} <span>→</span></button>
+      </article>
+    </section>
+    <section class="section">
+      <div class="section-heading">
+        <div><div class="eyebrow">COACH STACK</div><h2>17-page flow</h2></div>
+      </div>
+      <div class="quick-grid">
+        ${stack.map(page => `
+          <button class="quick-card" data-action="select-routine" data-id="${page.id}">
+            <span class="quick-icon">${page.page}</span>
+            <strong>${esc(page.title)}</strong>
+            <small>${page.category} · ${page.duration} min</small>
+          </button>
+        `).join('')}
+      </div>
+    </section>
+    <section class="notice"><span>ⓘ</span><p>Use this as your mobile guide: follow the printed sheet, check steps as you go, and keep the workout complete enough to finish the session with good rhythm and control.</p></section>
+  `;
 }
 function renderLibrary(){
- const cats=['All',...new Set(routines.map(r=>r.category))];
- const list=routines.filter(r=>(state.category==='All'||r.category===state.category)&&r.title.toLowerCase().includes(state.query.toLowerCase()));
- return `<section class="page-heading"><div class="eyebrow">YOUR COACH’S ROUTINES</div><h1>Workout library</h1><p>Choose a routine to see every drill, cue, rest interval, and completion step.</p></section><label class="search"><span>⌕</span><input id="search-input" type="search" placeholder="Search routines" value="${esc(state.query)}"></label><div class="chips">${cats.map(c=>`<button class="chip ${state.category===c?'selected':''}" data-action="category" data-value="${esc(c)}">${esc(c)}</button>`).join('')}</div><div class="routine-list">${list.map(r=>{const n=completedCount(r);return `<button class="routine-row" data-action="select-routine" data-id="${r.id}"><span class="routine-symbol">${esc(r.category[0])}</span><span class="routine-copy"><strong>${esc(r.title)}</strong><small>${esc(r.category)} · ${r.duration} min · ${r.exercises.length} steps</small>${progressBar(n,r.exercises.length,r.title+' progress')}</span><span class="row-arrow">›</span></button>`}).join('')||'<p class="empty">No routines match that search.</p>'}</div>`;
+  const cats = ['All', ...new Set(planPages.map(r => r.category))];
+  const list = planPages.filter(r => (state.category === 'All' || r.category === state.category) && r.title.toLowerCase().includes(state.query.toLowerCase()));
+  return `
+    <section class="page-heading">
+      <div class="eyebrow">YOUR COACH’S ROUTINES</div>
+      <h1>Workout library</h1>
+      <p>Choose a routine to view each drill, cue, rest interval, and completion state.</p>
+    </section>
+    <label class="search" aria-label="Search routines"><span>⌕</span><input id="search-input" type="search" placeholder="Search routines" value="${esc(state.query)}"></label>
+    <div class="chips">${cats.map(c => `<button class="chip ${state.category === c ? 'selected' : ''}" data-action="category" data-value="${esc(c)}">${esc(c)}</button>`).join('')}</div>
+    <div class="routine-list">
+      ${list.map(r => {
+        const n = completedCount(r);
+        return `
+          <button class="routine-row" data-action="select-routine" data-id="${r.id}">
+            <span class="routine-symbol">${r.page}</span>
+            <span class="routine-copy">
+              <strong>${esc(r.title)}</strong>
+              <small>${esc(r.category)} · ${r.duration} min · ${r.exercises.length} steps</small>
+              ${progressBar(n, r.exercises.length, r.title + ' progress')}
+            </span>
+            <span class="row-arrow">›</span>
+          </button>`;
+      }).join('') || '<p class="empty">No routines match that search.</p>'}
+    </div>
+  `;
 }
 function renderPlan(){
- const w=state.selectedWeek, sessions=conditioning[w-1], total=conditioning.length*3, done=Object.values(saved.days).filter(Boolean).length;
- return `<section class="page-heading"><div class="eyebrow">SOCCER · OFF-SEASON</div><h1>12-week conditioning</h1><p>Three conditioning days per week. Start partway through if needed; the sheet says to complete Week 12 the week before the season begins.</p></section><article class="workout-card plan-summary"><div class="progress-meta"><strong>Plan progress</strong><span>${Math.min(done,total)} / ${total} sessions · ${pct(Math.min(done,total),total)}%</span></div>${progressBar(Math.min(done,total),total,'12-week plan progress')}<p class="fine-print">The supplied sheet recommends implementing this plan 3 times per week. Follow your coach’s schedule and prescribed rest.</p></article><div class="week-strip">${conditioning.map((_,i)=>`<button class="week-pill ${w===i+1?'selected':''}" data-action="week" data-value="${i+1}"><small>WEEK</small><strong>${i+1}</strong></button>`).join('')}</div><section class="section"><div class="section-heading"><div><div class="eyebrow">WEEK ${w}</div><h2>Three training days</h2></div></div><div class="day-list">${sessions.map((s,i)=>{const k=`week${w}-day${i+1}`, checked=!!saved.days[k];return `<article class="day-card ${checked?'complete':''}"><div class="day-head"><span class="day-number">0${i+1}</span><div><small>DAY ${i+1}</small><h3>${esc(s[0])}</h3></div><button class="check-button" data-action="day-check" data-key="${k}" aria-label="Mark Day ${i+1} ${checked?'incomplete':'complete'}">${checked?'✓':''}</button></div><p>${esc(s[1])}</p></article>`}).join('')}</div></section><section class="notice"><span>ⓘ</span><p>Conditioning terms on the source sheet: Fartlek = 1 minute hard, 3 minutes easy, repeated for the given time. Easy run = conversational pace. Confirm drill setup and distances with your coach.</p></section>`;
+  const w = state.selectedWeek;
+  const sessions = conditioning[w - 1];
+  const total = conditioning.length * 3;
+  const done = Object.values(saved.days).filter(Boolean).length;
+  const coachStack = planPages.slice(0, 4);
+  return `
+    <section class="page-heading">
+      <div class="eyebrow">SOCCER · OFF-SEASON</div>
+      <h1>12-week conditioning</h1>
+      <p>Three conditioning days per week. Follow your coach schedule and adjust work/rest as needed.</p>
+    </section>
+    <article class="workout-card plan-summary">
+      <div class="progress-meta"><strong>Plan progress</strong><span>${Math.min(done, total)} / ${total} sessions · ${pct(Math.min(done, total), total)}%</span></div>
+      ${progressBar(Math.min(done, total), total, '12-week plan progress')}
+      <p class="fine-print">The source sheet recommends this plan 3 times per week. Follow your coach's day structure and rest recommendations.</p>
+    </article>
+    <div class="week-strip">${conditioning.map((_, i) => `<button class="week-pill ${w === i + 1 ? 'selected' : ''}" data-action="week" data-value="${i + 1}"><small>WEEK</small><strong>${i + 1}</strong></button>`).join('')}</div>
+    <section class="section">
+      <div class="section-heading">
+        <div><div class="eyebrow">WEEK ${w}</div><h2>Three training days</h2></div>
+      </div>
+      <div class="day-list">
+        ${sessions.map((s, i) => {
+          const k = `week${w}-day${i + 1}`;
+          const checked = !!saved.days[k];
+          return `
+            <article class="day-card ${checked ? 'complete' : ''}">
+              <div class="day-head">
+                <span class="day-number">0${i + 1}</span>
+                <div>
+                  <small>DAY ${i + 1}</small>
+                  <h3>${esc(s[0][0])}</h3>
+                </div>
+                <button class="check-button" data-action="day-check" data-key="${k}" aria-label="Mark Day ${i + 1} ${checked ? 'incomplete' : 'complete'}">${checked ? '✓' : ''}</button>
+              </div>
+              <p>${esc(s[0][1])}</p>
+            </article>
+          `;
+        }).join('')}
+      </div>
+    </section>
+    <section class="section">
+      <div class="section-heading">
+        <div><div class="eyebrow">COACH FLOW</div><h2>Daily pages</h2></div>
+      </div>
+      <div class="quick-grid">
+        ${coachStack.map(page => `
+          <button class="quick-card" data-action="select-routine" data-id="${page.id}">
+            <span class="quick-icon">${page.page}</span>
+            <strong>${esc(page.title)}</strong>
+            <small>${page.category}</small>
+          </button>
+        `).join('')}
+      </div>
+    </section>
+    <section class="notice"><span>ⓘ</span><p>Conditioning sessions in the source sheet use talking pace for easy run days and more intense work for sprint and gasser days. Keep the rest between sets honest and controlled.</p></section>
+  `;
 }
 function renderProgress(){
- const totalSteps=routines.reduce((n,r)=>n+r.exercises.length,0), doneSteps=Object.values(saved.done).filter(Boolean).length;
- const totalDays=conditioning.length*3, doneDays=Object.values(saved.days).filter(Boolean).length;
- const finished=routines.filter(r=>completedCount(r)===r.exercises.length).length;
- return `<section class="page-heading"><div class="eyebrow">CONSISTENCY BUILDS</div><h1>Your progress</h1><p>Your checkmarks stay saved on this device.</p></section><article class="workout-card overall-card"><div class="eyebrow">ALL ROUTINES</div><div class="big-number">${pct(doneSteps,totalSteps)}<small>%</small></div>${progressBar(doneSteps,totalSteps,'Exercise completion')}<p>${doneSteps} of ${totalSteps} exercise steps checked off</p></article><div class="metric-grid"><article class="metric-card"><span>✓</span><strong>${finished}</strong><small>routines completed</small></article><article class="metric-card"><span>▦</span><strong>${doneDays}</strong><small>conditioning days checked</small></article></div><section class="section"><div class="section-heading"><div><div class="eyebrow">BY ROUTINE</div><h2>Keep it moving</h2></div></div><div class="routine-list">${routines.map(r=>{const n=completedCount(r);return `<div class="progress-row"><div class="progress-meta"><strong>${esc(r.title)}</strong><span>${n}/${r.exercises.length}</span></div>${progressBar(n,r.exercises.length,r.title+' progress')}</div>`}).join('')}</div></section><button class="reset-button" data-action="reset">Reset all saved progress</button>`;
+  const totalSteps = planPages.reduce((n, r) => n + r.exercises.length, 0);
+  const doneSteps = Object.values(saved.done).filter(Boolean).length;
+  const doneDays = Object.values(saved.days).filter(Boolean).length;
+  const finished = planPages.filter(r => completedCount(r) === r.exercises.length).length;
+  return `
+    <section class="page-heading">
+      <div class="eyebrow">CONSISTENCY BUILDS</div>
+      <h1>Your progress</h1>
+      <p>Your checkmarks stay saved on this device.</p>
+    </section>
+    <article class="workout-card overall-card">
+      <div class="eyebrow">ALL ROUTINES</div>
+      <div class="big-number">${pct(doneSteps, totalSteps)}<small>%</small></div>
+      ${progressBar(doneSteps, totalSteps, 'Exercise completion')}
+      <p>${doneSteps} of ${totalSteps} exercise steps checked off</p>
+    </article>
+    <div class="metric-grid">
+      <article class="metric-card"><span>✓</span><strong>${finished}</strong><small>routines finished</small></article>
+      <article class="metric-card"><span>▦</span><strong>${doneDays}</strong><small>conditioning days checked</small></article>
+    </div>
+    <section class="section">
+      <div class="section-heading">
+        <div><div class="eyebrow">BY ROUTINE</div><h2>Keep it moving</h2></div>
+      </div>
+      <div class="routine-list">
+        ${planPages.map(r => {
+          const n = completedCount(r);
+          return `
+            <div class="progress-row">
+              <div class="progress-meta"><strong>${esc(r.title)}</strong><span>${n}/${r.exercises.length}</span></div>
+              ${progressBar(n, r.exercises.length, r.title + ' progress')}
+            </div>
+          `;
+        }).join('')}
+      </div>
+    </section>
+    <button class="reset-button" data-action="reset">Reset all saved progress</button>
+  `;
 }
 function renderRoutine(r){
- const n=completedCount(r), exercises=r.exercises;
- return `<button class="back-link" data-action="view" data-value="${state.view==='today'?'today':'library'}">← Back</button><section class="page-heading routine-heading"><span class="tag">${esc(r.category)}</span><h1>${esc(r.title)}</h1><p>${esc(r.note)}</p><div class="routine-facts"><span>◷ ${r.duration} min</span><span>▱ ${esc(r.equipment)}</span><span>${exercises.length} steps</span></div></section><article class="workout-card session-progress"><div class="progress-meta"><strong>Workout progress</strong><span>${n}/${exercises.length}</span></div>${progressBar(n,exercises.length,'Workout progress')}</article><div class="exercise-list">${exercises.map((e,i)=>{const checked=!!saved.done[keyFor(r.id,i)];return `<article class="exercise-card ${checked?'checked':''}"><button class="exercise-check" data-action="exercise-check" data-id="${r.id}" data-index="${i}" aria-label="Mark ${esc(e[0])} ${checked?'incomplete':'complete'}">${checked?'✓':''}</button><div class="exercise-content"><div class="exercise-index">STEP ${String(i+1).padStart(2,'0')}</div><h3>${esc(e[0])}</h3><span class="exercise-dose">${esc(e[1])}</span><p>${esc(e[2])}</p>${e[1].match(/\d+\s*(sec|seconds)/i)?`<button class="timer-button" data-action="timer" data-duration="${parseInt(e[1],10)}">▶ Start ${parseInt(e[1],10)} sec timer</button>`:''}</div></article>`}).join('')}</div><button class="primary-button full finish-button" data-action="finish" data-id="${r.id}">${n===exercises.length?'Workout complete ✓':'Mark workout complete'} <span>→</span></button>${state.timer!==null?`<div class="timer-bar" id="timer-bar"><strong id="timer-count">${formatTime(state.seconds)}</strong><span id="timer-label">${state.running?'Timer running':'Timer paused'}</span><button data-action="timer-toggle">${state.running?'Pause':'Resume'}</button><button data-action="timer-stop">Stop</button></div>`:''}`;
+  const n = completedCount(r);
+  const exercises = r.exercises;
+  return `
+    <button class="back-link" data-action="view" data-value="${state.view === 'today' ? 'today' : 'library'}">← Back</button>
+    <section class="page-heading routine-heading">
+      <span class="tag">Page ${r.page}</span>
+      <h1>${esc(r.title)}</h1>
+      <p>${esc(r.note)}</p>
+      <div class="routine-facts"><span>◷ ${r.duration} min</span><span>▱ ${esc(r.equipment)}</span><span>${exercises.length} steps</span></div>
+    </section>
+    <article class="workout-card session-progress">
+      <div class="progress-meta"><strong>Workout progress</strong><span>${n}/${exercises.length}</span></div>
+      ${progressBar(n, exercises.length, 'Workout progress')}
+    </article>
+    <div class="exercise-list">
+      ${exercises.map((e, i) => {
+        const checked = !!saved.done[keyFor(r.id, i)];
+        const timeMatch = e[1].match(/(\d+)\s*(sec|seconds)/i);
+        return `
+          <article class="exercise-card ${checked ? 'checked' : ''}">
+            <button class="exercise-check" data-action="exercise-check" data-id="${r.id}" data-index="${i}" aria-label="Mark ${esc(e[0])} ${checked ? 'incomplete' : 'complete'}">${checked ? '✓' : ''}</button>
+            <div class="exercise-content">
+              <div class="exercise-index">STEP ${String(i + 1).padStart(2, '0')}</div>
+              <h3>${esc(e[0])}</h3>
+              <span class="exercise-dose">${esc(e[1])}</span>
+              <p>${esc(e[2])}</p>
+              ${timeMatch ? `<button class="timer-button" data-action="timer" data-duration="${parseInt(timeMatch[1], 10)}">▶ Start ${parseInt(timeMatch[1], 10)} sec timer</button>` : ''}
+            </div>
+          </article>
+        `;
+      }).join('')}
+    </div>
+    <button class="primary-button full finish-button" data-action="finish" data-id="${r.id}">${n === exercises.length ? 'Workout complete ✓' : 'Mark workout complete'} <span>→</span></button>
+    ${state.timer !== null ? `<div class="timer-bar" id="timer-bar"><strong id="timer-count">${formatTime(state.seconds)}</strong><span id="timer-label">${state.running ? 'Timer running' : 'Timer paused'}</span><button data-action="timer-toggle">${state.running ? 'Pause' : 'Resume'}</button><button data-action="timer-stop">Stop</button></div>` : ''}
+  `;
 }
-function formatTime(n){ return `${Math.floor(n/60)}:${String(n%60).padStart(2,'0')}`; }
+function formatTime(n){ return `${Math.floor(n / 60)}:${String(n % 60).padStart(2, '0')}`; }
 function bindEvents(){
- document.querySelectorAll('[data-action]').forEach(el=>el.addEventListener('click',()=>onAction(el)));
- const search=document.getElementById('search-input'); if(search) search.addEventListener('input',()=>{state.query=search.value;const pos=search.selectionStart;render();const next=document.getElementById('search-input');next.focus();next.setSelectionRange(pos,pos);});
+  document.querySelectorAll('[data-action]').forEach((el) => el.addEventListener('click', () => onAction(el)));
+  const search = document.getElementById('search-input');
+  if (search) {
+    search.addEventListener('input', () => {
+      state.query = search.value;
+      const pos = search.selectionStart;
+      render();
+      const next = document.getElementById('search-input');
+      if (next) {
+        next.focus();
+        next.setSelectionRange(pos, pos);
+      }
+    });
+  }
 }
 function onAction(el){
- const action=el.dataset.action;
- if(action==='view'){state.view=el.dataset.value;stopTimer();render();window.scrollTo(0,0);}
- if(action==='select-routine'){state.selectedRoutine=el.dataset.id;state.view='library';renderRoutinePage();window.scrollTo(0,0);}
- if(action==='open-routine'){renderRoutinePage();window.scrollTo(0,0);}
- if(action==='category'){state.category=el.dataset.value;render();}
- if(action==='week'){state.selectedWeek=Number(el.dataset.value);render();}
- if(action==='exercise-check'){const k=keyFor(el.dataset.id,Number(el.dataset.index));saved.done[k]=!saved.done[k];save();renderRoutinePage();}
- if(action==='day-check'){saved.days[el.dataset.key]=!saved.days[el.dataset.key];save();render();}
- if(action==='finish'){const r=routines.find(x=>x.id===el.dataset.id);if(r){r.exercises.forEach((_,i)=>saved.done[keyFor(r.id,i)]=true);save();renderRoutinePage();toast('Workout saved. Nice work!');}}
- if(action==='reset'){if(confirm('Reset all workout and conditioning progress saved on this device?')){saved={done:{},sessions:{},days:{}};save();render();toast('Progress reset.');}}
- if(action==='timer'){startTimer(Number(el.dataset.duration));}
- if(action==='timer-toggle'){state.running=!state.running;if(state.running)runTimer();else stopTimer(false);updateTimerDisplay();}
- if(action==='timer-stop'){stopTimer();renderRoutinePage();}
+  const action = el.dataset.action;
+  if (action === 'view') { state.view = el.dataset.value; stopTimer(); render(); window.scrollTo(0, 0); }
+  if (action === 'select-routine') { state.selectedRoutine = el.dataset.id; state.view = 'library'; renderRoutinePage(); window.scrollTo(0, 0); }
+  if (action === 'open-routine') { state.selectedRoutine = el.dataset.id; renderRoutinePage(); window.scrollTo(0, 0); }
+  if (action === 'category') { state.category = el.dataset.value; render(); }
+  if (action === 'week') { state.selectedWeek = Number(el.dataset.value); render(); }
+  if (action === 'exercise-check') { const k = keyFor(el.dataset.id, Number(el.dataset.index)); saved.done[k] = !saved.done[k]; save(); renderRoutinePage(); }
+  if (action === 'day-check') { saved.days[el.dataset.key] = !saved.days[el.dataset.key]; save(); render(); }
+  if (action === 'finish') {
+    const r = planPages.find(x => x.id === el.dataset.id);
+    if (r) {
+      r.exercises.forEach((_, i) => (saved.done[keyFor(r.id, i)] = true));
+      save();
+      renderRoutinePage();
+      toast('Workout saved. Nice work!');
+    }
+  }
+  if (action === 'reset') {
+    if (confirm('Reset all workout and conditioning progress saved on this device?')) {
+      saved = { done:{}, sessions:{}, days:{} };
+      save();
+      render();
+      toast('Progress reset.');
+    }
+  }
+  if (action === 'timer') { startTimer(Number(el.dataset.duration)); }
+  if (action === 'timer-toggle') { state.running = !state.running; if (state.running) runTimer(); else stopTimer(false); updateTimerDisplay(); }
+  if (action === 'timer-stop') { stopTimer(); renderRoutinePage(); }
 }
-function renderRoutinePage(){const r=routines.find(x=>x.id===state.selectedRoutine);if(r)document.getElementById('app').innerHTML=renderRoutine(r);bindEvents();}
-function startTimer(seconds){stopTimer(false);state.seconds=seconds;state.timer=true;state.running=true;renderRoutinePage();runTimer();}
-function runTimer(){clearInterval(state.interval);if(!state.running)return;state.interval=setInterval(()=>{if(state.seconds>0){state.seconds--;updateTimerDisplay();}else{stopTimer(false);state.running=false;toast('Timer complete. Take the prescribed rest if needed.');updateTimerDisplay();}},1000);}
-function stopTimer(clear=true){clearInterval(state.interval);state.running=false;if(clear){state.timer=null;state.seconds=0;}}
-function updateTimerDisplay(){const c=document.getElementById('timer-count'),l=document.getElementById('timer-label'),b=document.querySelector('[data-action="timer-toggle"]');if(c)c.textContent=formatTime(state.seconds);if(l)l.textContent=state.running?'Timer running':'Timer paused';if(b)b.textContent=state.running?'Pause':'Resume';}
-function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(state.toastTimeout);state.toastTimeout=setTimeout(()=>t.classList.remove('show'),2800);}
-document.querySelectorAll('.nav-item').forEach(b=>b.addEventListener('click',()=>{stopTimer();state.view=b.dataset.view;render();window.scrollTo(0,0);}));
+function renderRoutinePage(){
+  const r = planPages.find(x => x.id === state.selectedRoutine);
+  if (r) {
+    document.getElementById('app').innerHTML = renderRoutine(r);
+    bindEvents();
+  }
+}
+function startTimer(seconds){
+  stopTimer(false);
+  state.seconds = seconds;
+  state.timer = true;
+  state.running = true;
+  renderRoutinePage();
+  runTimer();
+}
+function runTimer(){
+  clearInterval(state.interval);
+  if (!state.running) return;
+  state.interval = setInterval(() => {
+    if (state.seconds > 0) {
+      state.seconds -= 1;
+      updateTimerDisplay();
+    } else {
+      stopTimer(false);
+      state.running = false;
+      toast('Timer complete. Take the prescribed rest if needed.');
+      updateTimerDisplay();
+    }
+  }, 1000);
+}
+function stopTimer(clear = true){
+  clearInterval(state.interval);
+  state.running = false;
+  if (clear) {
+    state.timer = null;
+    state.seconds = 0;
+  }
+}
+function updateTimerDisplay(){
+  const count = document.getElementById('timer-count');
+  const label = document.getElementById('timer-label');
+  const toggle = document.querySelector('[data-action="timer-toggle"]');
+  if (count) count.textContent = formatTime(state.seconds);
+  if (label) label.textContent = state.running ? 'Timer running' : 'Timer paused';
+  if (toggle) toggle.textContent = state.running ? 'Pause' : 'Resume';
+}
+function toast(msg){
+  const t = document.getElementById('toast');
+  if (!t) return;
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(state.toastTimeout);
+  state.toastTimeout = setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+document.querySelectorAll('.nav-item').forEach((b) => b.addEventListener('click', () => {
+  stopTimer();
+  state.view = b.dataset.view;
+  render();
+  window.scrollTo(0, 0);
+}));
+
 render();
-let installPrompt;window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installPrompt=e;const b=document.getElementById('install-button');b.hidden=false;b.addEventListener('click',async()=>{if(!installPrompt)return;installPrompt.prompt();await installPrompt.userChoice;installPrompt=null;b.hidden=true;});});
-if('serviceWorker' in navigator && location.protocol.startsWith('http')) window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+
+let installPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  installPrompt = e;
+  const b = document.getElementById('install-button');
+  if (!b) return;
+  b.hidden = false;
+  b.addEventListener('click', async () => {
+    if (!installPrompt) return;
+    installPrompt.prompt();
+    await installPrompt.userChoice;
+    installPrompt = null;
+    b.hidden = true;
+  }, { once: true });
+});
+
+if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+}
