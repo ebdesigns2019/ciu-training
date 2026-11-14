@@ -11,18 +11,20 @@
   <title>Fieldwork — Training planner</title>
 </head>
 <body>
+  <a class="skip-link" href="#app">Skip to content</a>
   <header class="topbar">
     <a class="brand" href="#today" aria-label="Fieldwork home"><span class="brand-mark">F</span><span>FIELDWORK<span class="brand-sub">TRAINING PLANNER</span></span></a>
     <button class="install-button" id="install-button" hidden>Install app</button>
   </header>
   <main id="app" class="app-shell" tabindex="-1"></main>
   <nav class="bottom-nav" aria-label="Main navigation">
-    <button data-view="today" class="nav-item active"><span>◷</span>Today</button>
-    <button data-view="library" class="nav-item"><span>▤</span>Workouts</button>
-    <button data-view="plan" class="nav-item"><span>▦</span>12-week plan</button>
-    <button data-view="progress" class="nav-item"><span>◒</span>Progress</button>
+    <button data-view="today" class="nav-item active"><span aria-hidden="true">◷</span>Today</button>
+    <button data-view="library" class="nav-item"><span aria-hidden="true">▤</span>Workouts</button>
+    <button data-view="plan" class="nav-item"><span aria-hidden="true">▦</span>12-week plan</button>
+    <button data-view="progress" class="nav-item"><span aria-hidden="true">◒</span>Progress</button>
   </nav>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script src="app.js" defer></script>
+  <script src="ui-upgrade.js" defer></script>
 </body>
 </html>
