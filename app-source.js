@@ -1,32 +1,175 @@
 (() => {
+  'use strict';
+
   const root = document.getElementById('app');
   const routines = Array.isArray(window.workouts) ? window.workouts : [];
-  if (!root || !routines.length) {
-    if (root) root.innerHTML = '<p class="empty">Workout data could not be loaded. Please check workouts.js.</p>';
-    return;
+  const nav = [...document.querySelectorAll('.nav-item')];
+  const toast = document.getElementById('toast');
+  const STORAGE_KEY = 'fieldwork-sheet-tracker-v2';
+  const state = { view: 'library', selected: null, category: 'All', query: '' };
+  let progress = {};
+  let toastTimer;
+
+  try {
+    progress = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}') || {};
+  } catch {
+    progress = {};
   }
 
-  const styles = document.createElement('style');
-  styles.textContent = `.source-note{padding:12px 14px;border-left:3px solid #c8f36a;background:#f0f5e9;border-radius:8px;color:#405047;font-size:13px}.source-sheet{margin:16px 0;padding:12px;background:#fff;border:1px solid #e6e9e2;border-radius:16px;box-shadow:0 10px 28px rgba(27,47,35,.06)}.source-sheet figcaption{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 0 10px;font-size:11px;font-weight:700;letter-spacing:.07em;color:#536158}.source-sheet figcaption a{font-size:12px;letter-spacing:0;color:#204e3a;text-decoration:none;white-space:nowrap}.source-sheet img{display:block;width:100%;height:auto;border-radius:8px}.routine-row{display:flex;align-items:center;gap:12px;text-align:left;width:100%}.sheet-thumb{width:48px;height:64px;object-fit:cover;object-position:top;border-radius:7px;flex:none}.routine-copy{flex:1;min-width:0}.routine-detail{margin:14px 0;padding:15px;background:#fff;border:1px solid #e6e9e2;border-radius:16px}.routine-detail h3{margin:0 0 5px}.routine-detail p{margin:6px 0;color:#536158}.routine-detail .dose{display:inline-block;margin:4px 0;padding:4px 8px;border-radius:999px;background:#edf3e6;color:#204e3a;font-size:12px;font-weight:700}.routine-detail.complete{opacity:.68}.source-heading{display:flex;justify-content:space-between;align-items:center;gap:10px}.routine-search{width:100%;padding:13px 15px;border:1px solid #dfe5dc;border-radius:12px;font:inherit;margin:12px 0}.source-cats{display:flex;gap:8px;overflow:auto;padding:3px 0 12px}.source-cats button,.source-button{border:1px solid #dfe5dc;border-radius:999px;background:#fff;padding:8px 12px;color:#204e3a;font:inherit;white-space:nowrap}.source-cats button.selected{background:#204e3a;color:#fff}.source-action{border:0;background:#204e3a;color:#fff;border-radius:12px;padding:12px 16px;font:inherit;font-weight:700}.routine-page-back{margin:8px 0 16px;border:0;background:none;color:#204e3a;font:inherit}.source-progress{height:8px;background:#e8ece5;border-radius:99px;overflow:hidden}.source-progress span{display:block;height:100%;background:#204e3a}.source-meta{display:flex;justify-content:space-between;gap:8px;font-size:13px;color:#66736a;margin:8px 0}.source-title{margin:8px 0}.source-hint{font-size:12px;color:#758078}.source-page-link{display:block;margin:10px 0;color:#204e3a;font-weight:700;text-decoration:none}`;
-  document.head.append(styles);
-
-  const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const escape = value => String(value ?? '').replace(/[&<>"']/g, char => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  })[char]);
   const imagePath = path => String(path || '').split('/').map(encodeURIComponent).join('/');
-  const state = { view:'today', selected:null, category:'All', query:'' };
-  const KEY = 'fieldwork-sheet-tracker-v1';
-  function readProgress(){ try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch { return {}; } }
-  let progress = readProgress();
-  function save(){ localStorage.setItem(KEY, JSON.stringify(progress)); }
-  function doneCount(r){ return (r.exercises || []).filter((_, i) => progress[`${r.id}:${i}`]).length; }
-  function pageImage(r){ return `<figure class="source-sheet"><figcaption><span>ORIGINAL SHEET · SOURCE OF TRUTH</span><a href="${imagePath(r.pageImage)}" target="_blank" rel="noopener">Open full size ↗</a></figcaption><img src="${imagePath(r.pageImage)}" alt="Original source sheet: ${escape(r.title)}" loading="lazy"></figure>`; }
-  function routineCard(r, index){ const total=(r.exercises||[]).length, done=doneCount(r); return `<button class="routine-row" data-open="${escape(r.id)}"><img class="sheet-thumb" src="${imagePath(r.pageImage)}" alt="" loading="lazy"><span class="routine-copy"><strong>${escape(r.title)}</strong><small>${escape(r.category)} · ${escape(r.duration)} min · ${done}/${total} steps</small><span class="source-progress"><span style="width:${total?Math.round(done/total*100):0}%"></span></span></span><span class="row-arrow">›</span></button>`; }
-  function routineDetail(r){ const exercises=r.exercises||[], done=doneCount(r); return `<button class="routine-page-back" data-action="library">← All workouts</button><section class="page-heading routine-heading"><span class="tag">${escape(r.category)}</span><h1>${escape(r.title)}</h1><p>${escape(r.note)}</p><div class="routine-facts"><span>◷ ${escape(r.duration)} min</span><span>▱ ${escape(r.equipment)}</span><span>${exercises.length} steps</span></div></section><p class="source-note">The original sheet is the authority for this workout. Use it to verify the details below; the checklist is only for tracking.</p>${pageImage(r)}<section class="workout-card"><div class="source-meta"><strong>Progress</strong><span>${done}/${exercises.length} steps</span></div><div class="source-progress"><span style="width:${exercises.length?Math.round(done/exercises.length*100):0}%"></span></div></section><div class="exercise-list">${exercises.map((e,i)=>{const checked=!!progress[`${r.id}:${i}`];return `<article class="exercise-card ${checked?'checked':''}"><button class="exercise-check" data-check="${escape(r.id)}:${i}" aria-label="Mark ${escape(e[0])} ${checked?'incomplete':'complete'}">${checked?'✓':''}</button><div class="exercise-content"><div class="exercise-index">STEP ${String(i+1).padStart(2,'0')}</div><h3>${escape(e[0])}</h3><span class="exercise-dose">${escape(e[1])}</span><p>${escape(e[2])}</p></div></article>`;}).join('')}</div>`; }
-  function library(){ const categories=['All',...new Set(routines.map(r=>r.category))]; const filtered=routines.filter(r=>(state.category==='All'||r.category===state.category)&&r.title.toLowerCase().includes(state.query.toLowerCase())); return `<section class="page-heading"><div class="eyebrow">ORIGINAL SHEETS, ORGANIZED</div><h1>Workout library</h1><p>Every workout links back to its uploaded source sheet.</p></section><input class="routine-search" type="search" placeholder="Search workouts" value="${escape(state.query)}" aria-label="Search workouts"><div class="source-cats">${categories.map(c=>`<button class="${state.category===c?'selected':''}" data-category="${escape(c)}">${escape(c)}</button>`).join('')}</div><div class="routine-list">${filtered.map(r=>routineCard(r)).join('')||'<p class="empty">No workouts found.</p>'}</div>`; }
-  function today(){ const next=routines.find(r=>doneCount(r)<(r.exercises||[]).length)||routines[0]; const total=routines.reduce((n,r)=>n+(r.exercises||[]).length,0), done=routines.reduce((n,r)=>n+doneCount(r),0); return `<section class="hero"><div class="eyebrow">SHEET-BASED TRAINING TRACKER</div><h1>Keep your training<br><em>organized.</em></h1><p>Your uploaded coaching sheets stay the source of truth. This app adds searchable routines and progress tracking.</p><div class="hero-stats"><div><strong>${routines.length}<small> sheets</small></strong><span>in library</span></div><div><strong>${done}<small> / ${total}</small></strong><span>steps tracked</span></div></div></section><section class="section"><div class="section-heading"><div><div class="eyebrow">PICK UP WHERE YOU LEFT OFF</div><h2>Next workout</h2></div><button class="text-button" data-action="library">Browse all</button></div><article class="workout-card featured"><div class="card-top"><span class="tag">${escape(next.category)}</span><span class="muted">${escape(next.duration)} min · ${escape(next.equipment)}</span></div><h3>${escape(next.title)}</h3><p>${escape(next.note)}</p>${routineCard(next)}</article></section><section class="section"><div class="section-heading"><div><div class="eyebrow">SHEET BASELINE</div><h2>Original pages</h2></div></div><div class="routine-list">${routines.slice(0,4).map(r=>routineCard(r)).join('')}</div></section>`; }
-  function plan(){ const r=routines.find(x=>x.id==='conditioning-odd'); if(!r)return `<section class="page-heading"><h1>Training plan</h1><p>See the workouts library for all uploaded sheets.</p></section>`; return `<section class="page-heading"><div class="eyebrow">SOCCER · OFF-SEASON</div><h1>12-week conditioning</h1><p>The uploaded conditioning sheet is the source of truth for the weekly schedule.</p></section>${pageImage(r)}<p class="source-note">The app does not infer a day-by-day calendar from this page. Follow the schedule and rest intervals printed on the original sheet.</p><div class="routine-list">${routineCard(r)}</div>`; }
-  function stats(){ const total=routines.reduce((n,r)=>n+(r.exercises||[]).length,0), done=routines.reduce((n,r)=>n+doneCount(r),0); return `<section class="page-heading"><div class="eyebrow">YOUR TRAINING</div><h1>Progress</h1><p>Checkmarks are saved on this device. Source sheets are unchanged.</p></section><article class="workout-card overall-card"><div class="eyebrow">ALL WORKOUTS</div><div class="big-number">${total?Math.round(done/total*100):0}<small>%</small></div><div class="source-progress"><span style="width:${total?Math.round(done/total*100):0}%"></span></div><p>${done} of ${total} steps checked</p></article><div class="routine-list">${routines.map(r=>routineCard(r)).join('')}</div><button class="reset-button" data-action="reset">Reset saved progress</button>`; }
-  function render(){ document.querySelectorAll('.nav-item').forEach(b=>b.classList.toggle('active',b.dataset.view===state.view)); const selected=routines.find(r=>r.id===state.selected); root.innerHTML=selected?routineDetail(selected):state.view==='library'?library():state.view==='plan'?plan():state.view==='progress'?stats():today(); bind(); }
-  function bind(){ root.querySelectorAll('[data-open]').forEach(el=>el.addEventListener('click',()=>{state.selected=el.dataset.open;state.view='library';render();window.scrollTo(0,0);})); root.querySelectorAll('[data-action="library"]').forEach(el=>el.addEventListener('click',()=>{state.selected=null;state.view='library';render();window.scrollTo(0,0);})); root.querySelectorAll('[data-check]').forEach(el=>el.addEventListener('click',()=>{progress[el.dataset.check]=!progress[el.dataset.check];save();render();})); root.querySelectorAll('[data-category]').forEach(el=>el.addEventListener('click',()=>{state.category=el.dataset.category;render();})); const search=root.querySelector('.routine-search'); if(search)search.addEventListener('input',()=>{state.query=search.value;const pos=search.selectionStart;render();const next=root.querySelector('.routine-search');next?.focus();next?.setSelectionRange(pos,pos);}); root.querySelectorAll('[data-action="reset"]').forEach(el=>el.addEventListener('click',()=>{if(confirm('Reset all workout checkmarks saved on this device?')){progress={};save();render();}})); }
-  document.querySelectorAll('.nav-item').forEach(button=>button.addEventListener('click',()=>{state.view=button.dataset.view;state.selected=null;render();window.scrollTo(0,0);}));
+  const steps = routine => Array.isArray(routine.exercises) ? routine.exercises : [];
+  const isDone = (routine, index) => Boolean(progress[`${routine.id}:${index}`]);
+  const doneCount = routine => steps(routine).filter((_, index) => isDone(routine, index)).length;
+
+  function saveProgress() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+      return true;
+    } catch {
+      showToast('Progress could not be saved in this browser.');
+      return false;
+    }
+  }
+
+  function showToast(message) {
+    if (!toast) return;
+    toast.textContent = message;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
+  }
+
+  function sheetCard(routine) {
+    const count = steps(routine).length;
+    const completed = doneCount(routine);
+    const image = imagePath(routine.pageImage);
+    return `<button class="routine-row sheet-card" type="button" data-open="${escape(routine.id)}" aria-label="Open ${escape(routine.title)}">
+      <img class="sheet-thumb" src="${image}" alt="Preview of original ${escape(routine.title)} sheet" loading="lazy" onerror="this.hidden=true">
+      <span class="routine-copy"><span class="tag">${escape(routine.category)}</span><strong>${escape(routine.title)}</strong><small>${escape(routine.duration)} min · ${count} steps · ${completed}/${count} checked</small></span>
+      <span class="row-arrow" aria-hidden="true">›</span>
+    </button>`;
+  }
+
+  function libraryView() {
+    const categories = ['All', ...new Set(routines.map(routine => routine.category).filter(Boolean))];
+    const query = state.query.trim().toLowerCase();
+    const filtered = routines.filter(routine =>
+      (state.category === 'All' || routine.category === state.category) &&
+      `${routine.title} ${routine.category} ${routine.equipment}`.toLowerCase().includes(query)
+    );
+    return `<section class="page-heading"><div class="eyebrow">YOUR TRAINING SHEETS</div><h1>Workout library</h1><p>Choose a sheet to see the original page and its readable workout steps.</p></section>
+      <label class="search"><span aria-hidden="true">⌕</span><input id="routine-search" type="search" placeholder="Search workouts" value="${escape(state.query)}" autocomplete="off"></label>
+      <div class="chips" aria-label="Filter by category">${categories.map(category => `<button type="button" class="chip ${state.category === category ? 'selected' : ''}" data-category="${escape(category)}">${escape(category)}</button>`).join('')}</div>
+      <p class="result-count">${filtered.length} ${filtered.length === 1 ? 'sheet' : 'sheets'}</p>
+      <div class="routine-list">${filtered.length ? filtered.map(sheetCard).join('') : '<p class="empty">No sheets match that search. Try another word or choose All.</p>'}</div>`;
+  }
+
+  function detailView(routine) {
+    const image = imagePath(routine.pageImage);
+    const exercises = steps(routine);
+    return `<button class="back-link" type="button" data-view="library">← All sheets</button>
+      <section class="page-heading"><div class="eyebrow">${escape(routine.category)}</div><h1>${escape(routine.title)}</h1>
+        <p>${escape(routine.duration)} min · Equipment: ${escape(routine.equipment || 'See original sheet')}</p>
+        ${routine.note ? `<p>${escape(routine.note)}</p>` : ''}</section>
+      <figure class="source-sheet"><figcaption><strong>Original sheet — source of truth</strong><a href="${image}" target="_blank" rel="noopener">Open image full size ↗</a></figcaption>
+        <a href="${image}" target="_blank" rel="noopener"><img class="source-image" src="${image}" alt="Original workout sheet: ${escape(routine.title)}"></a>
+        <noscript>Open the original sheet using the link above.</noscript>
+      </figure>
+      <section class="section"><div class="section-heading"><div><div class="eyebrow">APP-FRIENDLY TRANSCRIPTION</div><h2>Workout steps</h2></div><span class="muted">${doneCount(routine)} / ${exercises.length} done</span></div>
+        <p class="source-note">Use the image above if any wording or detail in this list differs from the coach's sheet.</p>
+        <div class="exercise-list">${exercises.map((exercise, index) => `<label class="exercise-card ${isDone(routine, index) ? 'checked' : ''}">
+          <input type="checkbox" data-check="${escape(routine.id)}" data-index="${index}" ${isDone(routine, index) ? 'checked' : ''}>
+          <span class="exercise-content"><strong>${escape(exercise[0])}</strong><span class="exercise-dose">${escape(exercise[1])}</span>${exercise[2] ? `<small>${escape(exercise[2])}</small>` : ''}</span>
+        </label>`).join('')}</div>
+      </section>`;
+  }
+
+  function todayView() {
+    const next = routines.find(routine => doneCount(routine) < steps(routine).length) || routines[0];
+    const completed = routines.reduce((sum, routine) => sum + doneCount(routine), 0);
+    const total = routines.reduce((sum, routine) => sum + steps(routine).length, 0);
+    return `<section class="hero"><div class="eyebrow">FIELDWORK</div><h1>Your training, organized.</h1><p>Original coach sheets stay the source of truth. Browse a sheet or check off steps as you go.</p>
+      <div class="hero-stats"><strong>${completed} / ${total}</strong><span>steps checked</span></div></section>
+      ${next ? `<section class="section"><div class="section-heading"><h2>Pick up where you left off</h2></div>${sheetCard(next)}</section>` : ''}
+      <section class="section"><div class="section-heading"><h2>All source sheets</h2><button class="text-button" type="button" data-view="library">Browse all</button></div><div class="routine-list">${routines.slice(0, 4).map(sheetCard).join('')}</div></section>`;
+  }
+
+  function progressView() {
+    const total = routines.reduce((sum, routine) => sum + steps(routine).length, 0);
+    const completed = routines.reduce((sum, routine) => sum + doneCount(routine), 0);
+    return `<section class="page-heading"><div class="eyebrow">SAVED ON THIS DEVICE</div><h1>Your progress</h1><p>Progress is stored in this browser only. It never changes the original sheet images.</p></section>
+      <article class="workout-card"><div class="big-number">${total ? Math.round(completed / total * 100) : 0}%</div><p>${completed} of ${total} steps checked across ${routines.length} sheets.</p></article>
+      <div class="routine-list">${routines.map(routine => `<div class="routine-row progress-row"><strong>${escape(routine.title)}</strong><span>${doneCount(routine)} / ${steps(routine).length}</span></div>`).join('')}</div>
+      <button class="reset-button" type="button" data-reset>Reset saved progress</button>`;
+  }
+
+  function render() {
+    nav.forEach(button => button.classList.toggle('active', button.dataset.view === state.view));
+    const routine = routines.find(item => item.id === state.selected);
+    if (!routines.length) {
+      root.innerHTML = '<section class="page-heading"><h1>Workout data unavailable</h1><p>Please make sure workouts.js is in the same folder as index.html.</p></section>';
+      return;
+    }
+    if (routine) root.innerHTML = detailView(routine);
+    else if (state.view === 'today') root.innerHTML = todayView();
+    else if (state.view === 'progress') root.innerHTML = progressView();
+    else if (state.view === 'plan') root.innerHTML = `<section class="page-heading"><div class="eyebrow">SOURCE SHEET</div><h1>12-week conditioning</h1><p>Open the conditioning sheet from the workout library. Follow the original page for its schedule and prescriptions.</p></section>${sheetCard(routines.find(item => item.id === 'conditioning-odd') || routines[0])}`;
+    else root.innerHTML = libraryView();
+  }
+
+  root.addEventListener('click', event => {
+    const open = event.target.closest('[data-open]');
+    const view = event.target.closest('[data-view]');
+    const category = event.target.closest('[data-category]');
+    const reset = event.target.closest('[data-reset]');
+    if (open) {
+      state.selected = open.dataset.open;
+      state.view = 'library';
+      render();
+      window.scrollTo(0, 0);
+    } else if (view) {
+      state.selected = null;
+      state.view = view.dataset.view;
+      render();
+      window.scrollTo(0, 0);
+    } else if (category) {
+      state.category = category.dataset.category;
+      render();
+    } else if (reset && window.confirm('Clear all workout checkmarks saved in this browser?')) {
+      progress = {};
+      saveProgress();
+      render();
+      showToast('Saved progress cleared.');
+    }
+  });
+
+  root.addEventListener('change', event => {
+    const checkbox = event.target.closest('[data-check]');
+    if (!checkbox) return;
+    progress[`${checkbox.dataset.check}:${checkbox.dataset.index}`] = checkbox.checked;
+    saveProgress();
+    render();
+  });
+
+  root.addEventListener('input', event => {
+    if (event.target.id !== 'routine-search') return;
+    const position = event.target.selectionStart;
+    state.query = event.target.value;
+    render();
+    const search = document.getElementById('routine-search');
+    search?.focus();
+    search?.setSelectionRange(position, position);
+  });
+
+  nav.forEach(button => button.addEventListener('click', () => {
+    state.selected = null;
+    state.view = button.dataset.view;
+    render();
+    window.scrollTo(0, 0);
+  }));
+
   render();
 })();
