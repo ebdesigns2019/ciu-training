@@ -1,10 +1,11 @@
-const CACHE = 'fieldwork-v2';
+const CACHE = 'fieldwork-v3';
 const ASSETS = [
   './',
   './index.html',
   './styles.css',
   './workouts.js',
   './app-source.js',
+  './register-service-worker.js',
   './manifest.webmanifest',
   './icon.svg'
 ];
